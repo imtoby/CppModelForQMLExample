@@ -11,7 +11,7 @@ import QtQuick.Window 2.2
 Window {
     id: rootWindow
     visible: true
-    width: 360
+    width: 240
     height: 360
 
     ListView {
@@ -23,6 +23,14 @@ Window {
             width: rootWindow.width
             height: 40
             text: model.modelData.name + index
+        }
+    }
+
+    MouseArea {
+        anchors.fill: parent
+        onClicked: {
+            console.log("ZDS=============")
+            modelMgr.testInsert();
         }
     }
 }

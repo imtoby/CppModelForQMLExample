@@ -7,6 +7,7 @@
  ***************************************************************************/
 #include "ModelManager.h"
 #include <QThread>
+#include <QDateTime>
 
 #include "TestItem.h"
 
@@ -48,7 +49,7 @@ void ModelManager::initData()
 {
     Q_D(ModelManager);
     QObjectList testItemList;
-    for (int i=0; i<500; ++i) {
+    for (int i=0; i<5; ++i) {
         TestItem* newTestItem = new TestItem(this);
         testItemList.append(newTestItem);
     }
@@ -59,6 +60,14 @@ ObjectModel *ModelManager::objectModel()
 {
     Q_D(ModelManager);
     return d->objectModel;
+}
+
+void ModelManager::testInsert()
+{
+    Q_D(ModelManager);
+    TestItem* newTestItem = new TestItem(this);
+    newTestItem->setName(QString::number(QDateTime::currentMSecsSinceEpoch()));
+    d->objectModel->append(newTestItem);
 }
 
 void ModelManagerPrivate::init()

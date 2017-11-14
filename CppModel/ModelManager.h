@@ -23,6 +23,7 @@ public:
 
     Q_INVOKABLE void initData();
     Q_INVOKABLE ObjectModel* objectModel();
+    Q_INVOKABLE void testInsert();
 
 private:
     QScopedPointer<ModelManagerPrivate> d_ptr;
